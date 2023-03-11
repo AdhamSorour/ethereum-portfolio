@@ -1,9 +1,13 @@
 import { Avatar, Box, Card, CardActionArea, CardContent, CardHeader, Typography } from "@mui/material";
 import { utils } from "ethers";
 
-export default function TokenCard({ token }) {
+export default function TokenCard({ token, network }) {
 	function handleClick() { 
-		window.open(`https://etherscan.io/address/${token.contractAddress}`, '_blank');
+		if (network === "eth_mainnet") {
+			window.open(`https://etherscan.io/token/${token.contractAddress}`, '_blank');
+		} else {
+			window.open(`https://goerli.etherscan.io/token/${token.contractAddress}`, '_blank');
+		}
 	}
 
 	return (

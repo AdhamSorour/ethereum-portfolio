@@ -1,8 +1,12 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
 
-export default function NftCard({ nft }) {
+export default function NftCard({ nft, network }) {
 	function handleClick() {
-		window.open(`https://opensea.io/assets/${nft.contractAddress}/${nft.id}`, '_blank');
+		if (network === "eth_mainnet") {
+			window.open(`https://opensea.io/assets/${nft.contractAddress}/${nft.id}`, '_blank');
+		} else {
+			window.open(`https://testnets.opensea.io/assets/goerli/${nft.contractAddress}/${nft.id}`,'_blank');
+		}
 	}
 
 	return (

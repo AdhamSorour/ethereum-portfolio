@@ -2,7 +2,7 @@ import { Box, CircularProgress, Grid, Typography } from "@mui/material";
 import NftCard from "./NftCard";
 import TokenCard from "./TokenCard";
 
-export default function CardGrid({ items, type, isLoading }) {
+export default function CardGrid({ items, type, isLoading, network }) {
 	const centerContentProps = {
 		display: 'flex',
 		justifyContent: 'center',
@@ -30,7 +30,9 @@ export default function CardGrid({ items, type, isLoading }) {
 		<Grid container spacing={2}>
 			{items.map((item, index) =>(
 				<Grid item key={index} xs={6} sm={4} md={3} lg={2}>
-					{type === "nft"?  <NftCard nft={item} /> : <TokenCard token={item} />}
+					{type === "nft"?  
+						<NftCard nft={item} network={network} /> : <TokenCard token={item} network={network} />
+					}
 				</Grid>
 			))}
 		</Grid>

@@ -185,10 +185,10 @@ function App() {
 				</Tabs>
 			</Box>
 			<TabPanel value={tab} index={0}>
-				<CardGrid type="nft" items={nfts} isLoading={loading} />
+				<CardGrid type="nft" items={nfts} isLoading={loading} network={network} />
 			</TabPanel>
 			<TabPanel value={tab} index={1}>
-				<CardGrid type="tokens" items={tokens} isLoading={loading} />
+				<CardGrid type="tokens" items={tokens} isLoading={loading} network={network} />
 			</TabPanel>
 		</ThemeProvider>
 	);
